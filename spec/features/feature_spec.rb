@@ -1,8 +1,5 @@
 require 'spec_helper'
 require 'web_helpers'
-require_relative '../../lib/game'
-require_relative '../../app'
-require_relative '../../lib/player'
 
 feature 'US1 - Player can register their name' do
   scenario 'Returns the user name that the player inputs' do
@@ -53,7 +50,7 @@ feature 'US2 - Player can play a game of Rock, Paper' do
       click_button 'Play'
       expect(page).to have_content 'The result is a Win! Paper beats Rock.'         
     end
-    
+
     it 'CPU picks Scissors' do
       allow_any_instance_of(Game).to receive(:cpu_hand).and_return("Scissors")
       sign_in_and_play
@@ -82,7 +79,7 @@ feature 'US2 - Player can play a game of Rock, Paper' do
       click_button 'Play'
       expect(page).to have_content 'The result is a Loss! Rock beats Scissors.'    
     end
-    
+
     it 'CPU picks Scissors' do
       allow_any_instance_of(Game).to receive(:cpu_hand).and_return("Scissors")
       sign_in_and_play
